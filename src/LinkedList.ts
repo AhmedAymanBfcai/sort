@@ -20,46 +20,46 @@ export class LinkedList {
     }
 
     tail.next = node;
+  }
 
-    get length(): number {
-        if (!this.head) {
-            return 0;
-        }
+  get length(): number {
+    if (!this.head) {
+      return 0;
     }
-
     let length = 1;
-    let node: Node | null = this.head;
-    while(node.next){
-        length++;
-        node = node.next;
+    let node = this.head;
+    while (node.next) {
+      length++;
+      node = node.next;
     }
+
     return length;
   }
 
   at(index: number): Node {
     if (!this.head) {
-        throw new Error('Index out of bounds');
+      throw new Error('Index out of bounds');
     }
 
     let counter = 0;
     let node: Node | null = this.head;
     while (node) {
-        if (counter === index) {
-            return node;
-        }
+      if (counter === index) {
+        return node;
+      }
 
-        counter++;
-        node = node.next;
+      counter++;
+      node = node.next;
     }
     throw new Error('Index out of bounts');
   }
 
   compare(leftIndex: number, rightIndex: number): boolean {
-      if (!this.head) {
-          throw new Error('List is empty');
-      }
+    if (!this.head) {
+      throw new Error('List is empty');
+    }
 
-      return this.at(leftIndex).data > this.at(rightIndex).data;
+    return this.at(leftIndex).data > this.at(rightIndex).data;
   }
 
   swap(leftIndex: number, rightIndex: number): void {
@@ -72,14 +72,14 @@ export class LinkedList {
   }
 
   print(): void {
-      if (!this.head){
-          return;
-      }
-      
-      let node: Node | null = this.head;
-      while (node) {
-          console.log(node.data);
-          node = node.next;
-      }
+    if (!this.head) {
+      return;
+    }
+
+    let node: Node | null = this.head;
+    while (node) {
+      console.log(node.data);
+      node = node.next;
+    }
   }
 }
